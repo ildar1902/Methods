@@ -1,15 +1,34 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void checkYear(int year) {
 
         if (year % 100 == 0 && year % 400 == 0) {
-            System.out.println(year + " год является високосным"); }
-        else if (year % 4 ==0 && year % 100 > 0) {
-            System.out.println(year + " год является високосным!"); }
-        else if (year % 100 == 0) {
-            System.out.println(year + " год не является високосным..."); }
-        else { System.out.println(year + " год не является високосным!"); }
+            System.out.println(year + " год является високосным");
+        } else if (year % 4 == 0 && year % 100 > 0) {
+            System.out.println(year + " год является високосным!");
+        } else if (year % 100 == 0) {
+            System.out.println(year + " год не является високосным...");
+        } else {
+            System.out.println(year + " год не является високосным!");
+        }
 
     }
+    public static void checkDevice(int yearDevice, int osDevice) {
+        int currentYear = LocalDate.now().getYear();
+        if (osDevice == 0 && yearDevice < currentYear) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");}
+        if (osDevice == 0 && yearDevice == currentYear) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        }
+        if (osDevice == 1 && yearDevice < currentYear) {
+            System.out.println("Установите облегченную версию для Android по ссылке"); }
+        if (osDevice == 1 && yearDevice == currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке"); }
+        else if (osDevice > 1 || yearDevice > currentYear) {
+            System.out.println("Некорректно введены данные, проверьте ещё раз, пожалуйста"); }
+    }
+
     public static void printSeparator() {
         System.out.println("+++++++++++++++++++++");
         System.out.println("---------------------");
@@ -49,10 +68,15 @@ public class Main {
         //ДЗ
         System.out.println();
         System.out.println("    ДЗ");
+
 //        Задание 1
         System.out.println("Задание 1");
-    checkYear(2008);
-    }
+        checkYear(2008);
 
+//    Задание 2
+        System.out.println();
+        System.out.println("    Задание 2");
+        checkDevice(2022, 1);
+    }
 
 }
