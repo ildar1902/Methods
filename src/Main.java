@@ -12,21 +12,34 @@ public class Main {
         } else {
             System.out.println(year + " год не является високосным!");
         }
-
     }
+
     public static void checkDevice(int yearDevice, int osDevice) {
         int currentYear = LocalDate.now().getYear();
         if (osDevice == 0 && yearDevice < currentYear) {
-            System.out.println("Установите облегченную версию приложения для iOS по ссылке");}
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        }
         if (osDevice == 0 && yearDevice == currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }
         if (osDevice == 1 && yearDevice < currentYear) {
-            System.out.println("Установите облегченную версию для Android по ссылке"); }
+            System.out.println("Установите облегченную версию для Android по ссылке");
+        }
         if (osDevice == 1 && yearDevice == currentYear) {
-            System.out.println("Установите версию приложения для Android по ссылке"); }
-        else if (osDevice > 1 || yearDevice > currentYear) {
-            System.out.println("Некорректно введены данные, проверьте ещё раз, пожалуйста"); }
+            System.out.println("Установите версию приложения для Android по ссылке");
+        } else if (osDevice > 1 || yearDevice > currentYear) {
+            System.out.println("Некорректно введены данные, проверьте ещё раз, пожалуйста");
+        }
+    }
+
+    public static void calculateDays(double deliveryDistance) {
+        double deliveryTime = 1;
+        if (deliveryDistance <= 20) {
+            System.out.println("При расстоянии " + deliveryDistance + "км от банка, доставка осуществляется в течение " + deliveryTime + " дня");
+        } else if (deliveryDistance > 20) {
+            deliveryTime = ((deliveryDistance - 20) / 40) + 1;
+            System.out.println("При расстоянии " + deliveryDistance + "км от банка, доставка осуществляется в течение " + Math.ceil(deliveryTime) + " дней");
+        }
     }
 
     public static void printSeparator() {
@@ -71,12 +84,19 @@ public class Main {
 
 //        Задание 1
         System.out.println("Задание 1");
-        checkYear(2008);
+        checkYear(2012);
 
 //    Задание 2
         System.out.println();
         System.out.println("    Задание 2");
-        checkDevice(2022, 1);
-    }
+        checkDevice(2021, 1);
 
+//        Задание 3
+        System.out.println();
+        System.out.println("    Задание 3");
+        calculateDays(356);
+
+        System.out.println();
+        System.out.println("    Конец.");
+    }
 }
