@@ -41,6 +41,15 @@ public class Main {
             System.out.println("При расстоянии " + deliveryDistance + "км от банка, доставка осуществляется в течение " + Math.ceil(deliveryTime) + " дней");
         }
     }
+    public static double checkDays(double distance) {
+        double deliveryTime = 1;
+        if (distance <= 20) {
+            return deliveryTime;
+        } else {
+            deliveryTime = (distance - 20) / 40 + 1;
+            return Math.ceil(deliveryTime);
+        }
+    }
 
     public static void printSeparator() {
         System.out.println("+++++++++++++++++++++");
@@ -98,5 +107,12 @@ public class Main {
 
         System.out.println();
         System.out.println("    Конец.");
+
+//        P.S. Задание 3.1 (использовал возвращающий метод)
+        System.out.println();
+        System.out.println("P.S.Задание 3.1");
+        double deliveryDistance = 356;
+        double deliveryTime = checkDays(deliveryDistance);
+        System.out.println("При расстоянии " + deliveryDistance + " км от банка, доставка банковской карты осуществляется в течение " + deliveryTime + " суток");
     }
 }
